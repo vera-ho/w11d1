@@ -11,14 +11,13 @@ export default class Tile extends React.Component {
             text: ""
         }
         this.handleClick = this.handleClick.bind(this);
-        this.checkTileState = this.checkTileState.bind(this);
     }
 
     handleClick(e) {
         e.preventDefault();
         let flagged = e.altKey;
 
-        
+
         // if (e.altKey){
         //     if(!this.props.tile.flagged) {
         //         this.setState({ status: "flagged", text: "F" })
@@ -29,46 +28,34 @@ export default class Tile extends React.Component {
         this.props.update(this.props.tile, flagged);
     }
 
-    checkTileState() {
-    }
-
     render() {
-        // this.checkTileState();
         let type = "";
         let text = "";
         let bombCount = this.props.tile.adjacentBombCount() ;
         bombCount === 0 ? bombCount = null : bombCount;
       
-        // debugger
-        if (!this.props.tile.explored) {
+        if(this.props.tile.flagged) {
+            type = "flagged";
+            text = "F";
+        } else if (!this.props.tile.explored) {
             type = "tile";
             text = "";
         } else 
         if (this.props.tile.explored && !this.props.tile.bombed) {
             type = "revealed";
             text = bombCount;
-            // this.setState({ status: "revealed", text: bombCount })
         } else if (this.props.tile.bombed){
             type = "bombed";
             text = "B";
-            // this.setState({ status: "bombed", text: "B" })
-        } else if(this.props.tile.flagged) {
-            type = "flagged";
-            text = "F";
         } else {
             type = "revealed";
             text = "";
         }
-        // } else if(this.props.tile.explored && !this.props.tile.bombed) {
-        //     type = "revealed";
-        //     text = "";
-        //     // this.setState({ status: "revealed", text: "" })
-        // }
 
         return (
-            (<div className={type} onClick={this.handleClick}>
-            {text}
-        </div>)
+            <div className={type} onClick={this.handleClick}>
+                {text}
+            </div>
         )
 
     }
