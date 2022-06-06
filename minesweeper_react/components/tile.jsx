@@ -6,13 +6,17 @@ import { ReactDOM } from "react";
 export default class Tile extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {status: ""}
+    }
+
+    handleClick() {
+
     }
 
     render() {
 
         return(
-            <div>
-                T
+            <div className="tile" onClick={this.handleClick}>
             </div>
         )
 
