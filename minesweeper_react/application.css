@@ -10,15 +10,22 @@
 }
 
 .revealed {
-border-style: inset;
+    border-style: inset;
+    /* position: absolute; */
+    width: 25px;
+    height: 25px;
 }
 
 .bombed {
-border-style: inset;
+    border-style: inset;
+    width: 25px;
+    height: 25px;
 }
 
 .flagged{
-border-style: inset;
+    border-style: inset;
+    width: 25px;
+    height: 25px;
 }
 
 .row {

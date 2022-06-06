@@ -6,7 +6,7 @@ import Tile from "./tile";
 export default class Board extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
+        // console.log(this.props)
         this.renderRow = this.renderRow.bind(this);
         this.renderTiles = this.renderTiles.bind(this);
     }

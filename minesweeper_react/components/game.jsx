@@ -7,7 +7,7 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            board: new Minesweeper.Board(10, 5)
+            board: new Minesweeper.Board(10, 15)
         }
         // console.log(this.state.board)
         // debugger
