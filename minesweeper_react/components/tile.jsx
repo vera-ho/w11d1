@@ -10,15 +10,13 @@ export default class Tile extends React.Component {
             status: "tile",
             text: ""
         }
-        this.handleClick = this.handleClick.bind(this)
+        this.handleClick = this.handleClick.bind(this);
+        this.checkTileState = this.checkTileState.bind(this);
     }
-
-
 
     handleClick(e) {
         e.preventDefault();
         let flagged = e.altKey;
-        // console.log(e);
 
         let bombCount = this.props.tile.adjacentBombCount() 
         bombCount === 0 ? bombCount = null : bombCount
@@ -37,7 +35,15 @@ export default class Tile extends React.Component {
         this.props.update(this.props.tile, flagged);
     }
 
+    checkTileState() {
+        if(this.props.tile.explored) {
+            this.setState({ status: "revealed", text: "" })
+        }
+    }
+
     render() {
+        this.checkTileState();
+
         return(
             (<div className={this.state.status} onClick={this.handleClick}>
             {this.state.text}

@@ -1,7 +1,5 @@
 .tile {
     display: flex ;
-    /* border: 1px black solid ; */
-    
     text-align: center;
     width: 25px;
     height: 25px;
@@ -11,7 +9,6 @@
 
 .revealed {
     border-style: inset;
-    /* position: absolute; */
     width: 25px;
     height: 25px;
 }
@@ -33,3 +30,4 @@
     flex-direction: row;
     width: 15px;
 }
+

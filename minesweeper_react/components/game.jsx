@@ -9,15 +9,9 @@ export default class Game extends React.Component {
         this.state = {
             board: new Minesweeper.Board(10, 15)
         }
-        // console.log(this.state.board)
-        // debugger
-        // this.updateGame = this.updateGame.bind(this);
     }
 
     updateGame = (tile, flagged) => {
-        console.log(tile);
-        console.log(flagged);
-
         if(flagged) {
             tile.toggleFlag();
         } else {
@@ -29,13 +23,31 @@ export default class Game extends React.Component {
 
     // updateGame() {
     // }
+    win() {
+        // debugger
+        // let winState = false;
+        if(this.state.board.won()) {
+            // winState = true;
+            return "You win!"
+        } 
+    }
+
+    lose() {
+        let loseState = false;
+        if(this.state.board.lost()) {
+            return "Game over!";
+        }
+    }
 
     render() {
         // debugger
         return (
             <div>
-                <span>HELLO</span>
+                <span>Play some Minesweeper!</span>
+                <br></br>
                 <Board board={this.state.board} update={this.updateGame} />
+                
+                <span className="win">{this.lose()}</span><br></br>
             </div>
         )
     }
