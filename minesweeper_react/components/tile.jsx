@@ -17,25 +17,24 @@ export default class Tile extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        console.log(e);
+        let flagged = e.altKey;
+        // console.log(e);
 
         let bombCount = this.props.tile.adjacentBombCount() 
         bombCount === 0 ? bombCount = null : bombCount
 
         if (!this.props.tile.explored && !this.props.tile.bombed && !e.altKey) {
-            console.log("revealed")
             this.setState({ status: "revealed", text: bombCount })
-
         } else if (this.props.tile.bombed){
-            console.log("bombed")
             this.setState({ status: "bombed", text: "B" })
-
         } else if (e.altKey){
-            console.log("flagged")
-            this.setState({ status: "flagged", text: "F" })
-
+            if(!this.props.tile.flagged) {
+                this.setState({ status: "flagged", text: "F" })
+            } else {
+                this.setState({ status: "tile", text: "" })
+            }
         } 
-        this.props.update();
+        this.props.update(this.props.tile, flagged);
     }
 
     render() {
