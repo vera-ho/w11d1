@@ -6,6 +6,7 @@ import Tile from "./tile";
 export default class Board extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
         this.renderRow = this.renderRow.bind(this);
         this.renderTiles = this.renderTiles.bind(this);
     }
@@ -17,18 +18,17 @@ export default class Board extends React.Component {
     }
 
     renderRow() {
+        // debugger
         const board = this.props.board.grid;
-        board.map( (row, rowIdx) => {
-            // this.renderTiles(row);
+        return board.map( (row, rowIdx) => {
             return (
-
                 <div key={rowIdx}>{this.renderTiles(row, rowIdx)}</div>
             );
         });
     }
 
     render(){
-        
+        // debugger
         return(
             <div>
                 {this.renderRow()}

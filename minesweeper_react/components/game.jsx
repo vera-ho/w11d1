@@ -1,4 +1,4 @@
-import * as Minesweeper from "../minesweeper";
+import * as Minesweeper from "../minesweeper.js";
 import React from "react";
 import { ReactDOM } from "react";
 import Board from "./board"
@@ -9,6 +9,7 @@ export default class Game extends React.Component {
         this.state = {
             board: new Minesweeper.Board(10, 5)
         }
+        // console.log(this.state.board)
         // debugger
         // this.updateGame = this.updateGame.bind(this);
     }
@@ -21,9 +22,10 @@ export default class Game extends React.Component {
     // }
 
     render() {
-
+        // debugger
         return (
             <div>
+                <span>HELLO</span>
                 <Board board={this.state.board} update={this.updateGame} />
             </div>
         )
