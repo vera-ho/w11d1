@@ -1,0 +1,28 @@
+.tile {
+    display: flex ;
+    /* border: 1px black solid ; */
+    
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    border-style: outset;
+
+}
+
+.revealed {
+border-style: inset;
+}
+
+.bombed {
+border-style: inset;
+}
+
+.flagged{
+border-style: inset;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 15px;
+}

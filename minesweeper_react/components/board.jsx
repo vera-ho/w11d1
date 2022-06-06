@@ -30,7 +30,7 @@ export default class Board extends React.Component {
     render(){
         // debugger
         return(
-            <div>
+            <div className="row">
                 {this.renderRow()}
             </div>)
     }
